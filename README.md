@@ -1,50 +1,50 @@
 # Panorama Image Stitcher 🖼️
 
-Aplicație C++ pentru crearea de imagini panoramice din mai multe fotografii folosind OpenCV.
+A C++ application for creating panoramic images from multiple photographs using OpenCV.
 
-## 📋 Descriere
+## 📋 Description
 
-Acest proiect permite combinarea automată a mai multor imagini într-o singură panoramă, cu suport pentru diferite tipuri de proiecții și procesare avansată a imaginii.
+This project enables automatic combination of multiple images into a single panorama, with support for different projection types and advanced image processing.
 
-## ✨ Funcționalități
+## ✨ Features
 
-- **Stitching automat** de imagini multiple
-- **Trei tipuri de proiecții**:
-  - Cilindrică (implicit)
-  - Sferică
-  - Plană
-- **Proiecție inversă** pentru curbură interioară
-- **Decupare automată** pentru eliminarea zonelor negre
-- **Retușare** (inpainting) a zonelor negre rămase
-- **Sortare alfabetică** a imaginilor pentru ordinea corectă
+- **Automatic stitching** of multiple images
+- **Three projection types**:
+  - Cylindrical (default)
+  - Spherical
+  - Planar
+- **Inverse projection** for inward curvature
+- **Automatic cropping** to remove black areas
+- **Inpainting** for remaining black regions
+- **Alphabetical sorting** of images for correct order
 
-## 🛠️ Prerequisite
+## 🛠️ Prerequisites
 
-- **C++17** sau mai nou
+- **C++17** or newer
 - **CMake** 3.10+
-- **OpenCV** 4.x (cu modulul stitching)
+- **OpenCV** 4.x (with stitching module)
 
-## 📦 Instalare
+## 📦 Installation
 
-### Instalare OpenCV
+### Installing OpenCV
 
-1. Descarcă OpenCV de la [opencv.org](https://opencv.org/releases/)
-2. Extrage și notează calea de instalare
+1. Download OpenCV from [opencv.org](https://opencv.org/releases/)
+2. Extract and note the installation path
 
-### Configurare proiect
+### Project Setup
 
-1. Clonează repository-ul:
+1. Clone the repository:
 ```bash
-git clone https://github.com/TauConteleElveti/panorama.git
+git clone https://github.com/Victor017936/panorama.git
 cd panorama
 ```
 
-2. Actualizează calea către OpenCV în `CMakeLists.txt`:
+2. Update the OpenCV path in `CMakeLists.txt`:
 ```cmake
 set(OpenCV_DIR "C:/OpenCV/opencv/build/x64/vc16/lib")
 ```
 
-3. Creează directorul de build și compilează:
+3. Create build directory and compile:
 ```bash
 mkdir build
 cd build
@@ -52,75 +52,75 @@ cmake ..
 cmake --build . --config Release
 ```
 
-## 🚀 Utilizare
+## 🚀 Usage
 
 ```bash
-panorama.exe <cale_folder> [nume_output] [proiecție] [inside]
+panorama.exe <folder_path> [output_name] [projection] [inside]
 ```
 
-### Parametri
+### Parameters
 
-- `<cale_folder>` - **Obligatoriu**: Calea către folderul cu imagini
-- `[nume_output]` - Opțional: Numele fișierului de ieșire (implicit: `imagine_finala.jpg`)
-- `[proiecție]` - Opțional: Tipul de proiecție
-  - `cylindrical` (implicit)
+- `<folder_path>` - **Required**: Path to the folder containing images
+- `[output_name]` - Optional: Output file name (default: `imagine_finala.jpg`)
+- `[projection]` - Optional: Projection type
+  - `cylindrical` (default)
   - `spherical`
   - `plane`
-- `[inside]` - Opțional: Adaugă parametrul `inside` pentru curbură interioară
+- `[inside]` - Optional: Add `inside` parameter for inward curvature
 
-### Exemple
+### Examples
 
 ```bash
-# Panoramă cilindrică standard
+# Standard cylindrical panorama
 panorama.exe images/
 
-# Panoramă sferică cu nume personalizat
+# Spherical panorama with custom name
 panorama.exe images/ output.jpg spherical
 
-# Panoramă cu curbură interioară
+# Panorama with inward curvature
 panorama.exe images/ result.jpg cylindrical inside
 ```
 
-## 📁 Structură proiect
+## 📁 Project Structure
 
 ```
 Panorama/
 ├── src/
-│   └── main.cpp          # Codul sursă principal
-├── images/               # Folder pentru imagini de test
-├── CMakeLists.txt        # Configurație CMake
+│   └── main.cpp          # Main source code
+├── images/               # Folder for test images
+├── CMakeLists.txt        # CMake configuration
 └── README.md
 ```
 
-## ⚙️ Detalii tehnice
+## ⚙️ Technical Details
 
-### Configurație Stitcher
+### Stitcher Configuration
 
-- **Prag de încredere**: 0.65
-- **Rezoluție estimare cusături**: 0.5
-- **Rezoluție înregistrare**: 0.6
-- **Corecție ondulații**: Orizontală activată
+- **Confidence threshold**: 0.65
+- **Seam estimation resolution**: 0.5
+- **Registration resolution**: 0.6
+- **Wave correction**: Horizontal enabled
 
-### Formate suportate
+### Supported Formats
 
 - JPEG (.jpg, .jpeg)
 - PNG (.png)
 - BMP (.bmp)
 - TIFF (.tif, .tiff)
 
-## 📝 Licență
+## 📝 License
 
-Acest proiect este open-source și disponibil pentru utilizare liberă.
+This project is open-source and available for free use.
 
-## 🤝 Contribuții
+## 🤝 Contributing
 
-Contribuțiile sunt binevenite! Deschide un issue sau trimite un pull request.
+Contributions are welcome! Open an issue or submit a pull request.
 
-## 👤 Autor
+## 👤 Author
 
-Victor - [@TauConteleElveti](https://github.com/TauConteleElveti)
+Victor - [@Victor017936](https://github.com/Victor017936)
 
-## 🙏 Mulțumiri
+## 🙏 Acknowledgments
 
-- OpenCV pentru biblioteca excelentă de procesare imagine
-- Comunitatea open-source pentru inspirație și suport
+- OpenCV for the excellent image processing library
+- Open-source community for inspiration and support
